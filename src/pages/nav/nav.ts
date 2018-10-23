@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { PEOPLE } from  '../../mocks/person.mocks';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the HomePage page.
+ * Generated class for the NavPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,25 +11,21 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html',
+  selector: 'page-nav',
+  templateUrl: 'nav.html',
 })
-export class HomePage {
+export class NavPage {
 
-  name = "Hello World";
- 
+  lastname;
+  peopleList =  PEOPLE;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-   
+
+    this.lastname= this.navParams.get("variable")
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad HomePage');
-  }
-
-  navigate(){
-    this.navCtrl.push('NavPage', {variable: this.name})
+    console.log('ionViewDidLoad NavPage');
   }
 
 }
-
